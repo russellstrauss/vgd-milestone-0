@@ -62,7 +62,12 @@ public class PlayerController : MonoBehaviour {
 		cameraForward.y = 0;
 		cameraRight.y = 0;
 		
-		Vector3 movement = new Vector3(movementInput.x, fallingVelocity, movementInput.y);
+		//Vector3 movement = new Vector3(movementInput.x, fallingVelocity, movementInput.y);
+		Vector3 movement = cameraForward * movementInput.y + cameraRight * movementInput.x;
+		movement.y = fallingVelocity;
+		
+		if (movement.magnitude < 0) movement = Vector3.zero;
+		
 		rb.AddForce(movement * speed);
 		
 		if (transform.position.y < -1000) {
