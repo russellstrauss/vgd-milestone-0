@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	private const string Tag = "Pick Up";
 	public float speed;
 	public TextMeshProUGUI countText;
+	public TextMeshProUGUI winText;
+	private string winTextDefault;
 	public float jumpForce; 
 	private Vector3 playerStartPosition;
 	private Vector3 cameraStartPosition;
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour {
 		SetCountText();
 		playerStartPosition = rb.position;
 		cameraStartPosition = mainCamera.transform.position;
+		//winTextDefault = winText.text;
+		winText.text = "";
 	}
 	
 	void Jump() {
@@ -89,6 +93,9 @@ public class PlayerController : MonoBehaviour {
 	void SetCountText()
 	{
 		countText.text = "Score: " + count.ToString();
+		if (count > 22) {
+			winText.text = winTextDefault;
+		}
 	}
 	
 	void ResetState() {

@@ -5,7 +5,8 @@ Added modifications:
 -Sounds effects
 -Music
 -Jump action
--Pareticle effects on player
+-Particle effects on player
+-Add input forusb/bluetooth game controller
 -Unique ball reflective material
 -SkyBox for decoration
 -Custom game mesh shapes with ProBuilder
